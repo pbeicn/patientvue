@@ -41,6 +41,22 @@ axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+// 使用钩子函数对路由进行权限跳转
+router.beforeEach((to, from, next) => {
+  const role = sessionStorage.getItem("access_token");
+  window.console.log(to.path);
+  window.console.log(role);
+  if (!role && (to.path !== "/" || to.path !== "/")) {
+    sessionStorage.removeItem("access_token");
+    next("/");
+  } else if (to.path === "/") {
+    sessionStorage.removeItem("access_token");
+    next();
+  } else {
+    next();
+  }
+});
 new Vue({
   router,
   store,
