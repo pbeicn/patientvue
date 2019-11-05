@@ -70,7 +70,7 @@
               <td align="left">
                 <img src="@/assets/card.png" class="main_head_10" />
               </td>
-              <td align="right">
+              <td align="right" @click="toGetCard">
                 <img src="@/assets/plus.png" class="main_head_11" />
               </td>
             </tr>
@@ -95,7 +95,7 @@
               <td align="left">
                 <img src="@/assets/his.png" class="main_head_10" />
               </td>
-              <td align="right">
+              <td align="right" @click="toSickList">
                 <img src="@/assets/plus.png" class="main_head_11" />
               </td>
             </tr>
@@ -128,6 +128,12 @@ export default {
     },
     toGuaHao() {
       this.$router.push("/saoma");
+    },
+    toGetCard() {
+      this.$router.push("/card");
+    },
+    toSickList() {
+      this.$router.push("/sicklist");
     }
   },
   mounted() {

@@ -31,11 +31,9 @@ Vue.config.productionTip = false;
 axios.interceptors.request.use(
   config => {
     let authtoken = sessionStorage.getItem("access_token");
-    // alert(authtoken);
+    // alert(2);
     if (authtoken !== null) {
       config.headers.Authorization = authtoken;
-    } else {
-      this.$router.push("/");
     }
     return config;
   },

@@ -34,6 +34,7 @@
           <a-input
             v-model="logininfo.password"
             size="large"
+            type="password"
             class="login_input"
             placeholder="请输入登录密码，注意大小写"
           />

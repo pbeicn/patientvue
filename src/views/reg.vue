@@ -66,7 +66,7 @@
         <span class="reg_h3">设置密码</span>
       </a-col>
       <a-col :span="18">
-        <a-input v-model="user.password" size="large" class="login_input" placeholder="请输入密码" />
+        <a-input v-model="user.password" type="password" size="large" class="login_input" placeholder="请输入密码" />
       </a-col>
     </a-row>
     <div class="reg_bottom">
@@ -110,7 +110,6 @@ export default {
         });
     },
     success() {
-      alert(this.tipinfo);
       this.$success({
         title: "成功提示",
         // JSX support

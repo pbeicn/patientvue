@@ -1,50 +1,68 @@
 <template>
-  <div id="reg" class="reg_reg">
-    <a-row type="flex" justify="space-around" class="reg_h1" align="middle">
+  <div id="card" class="card_reg">
+    <a-row type="flex" justify="space-around" class="card_h1" align="middle">
       <a-col :span="6">
         <a-row type="flex" justify="space-around" align="middle">
           <a-col :span="2"></a-col>
           <a-col :span="2">
             <router-link to="/">
-              <font-awesome-icon icon="angle-left" class="reg_h2" />
+              <font-awesome-icon icon="angle-left" class="card_h2" />
             </router-link>
           </a-col>
-          <a-col :span="20" class="reg_head">
+          <a-col :span="20" class="card_head">
             <router-link to="/main">
-              <span class="reg_h2">返回</span>
+              <span class="card_h2">返回</span>
             </router-link>
           </a-col>
         </a-row>
       </a-col>
       <a-col :span="13">
-        <span class="reg_h3">扫码登录</span>
+        <span class="card_h3">我的卡包</span>
       </a-col>
       <a-col :span="5"></a-col>
     </a-row>
-    <a-row type="flex" justify="space-around" class="reg_h1" align="middle">
-      <a-col :span="1"></a-col>
-      <a-col :span="5" class="reg_head">
-        <span class="reg_h3">二维码</span>
+    <br />
+    <br />
+    <a-row>
+      <a-col :span="2"></a-col>
+      <a-col :span="20">
+        <div class="card_ma">
+          <img src="@/assets/addcard.png" class="card_img" />
+        </div>
       </a-col>
-      <a-col :span="18">
-        <a-input
-          v-model="ma"
-          size="large"
-          class="login_input"
-          value="18461783365189632"
-          placeholder="请输入医生二维码"
-        />
+      <a-col :span="2"></a-col>
+    </a-row>
+    <br />
+    <br />
+    <a-row>
+      <a-col :span="2"></a-col>
+      <a-col :span="20">
+        <span class="card_f">当前卡包无卡片</span>
+      </a-col>
+      <a-col :span="2"></a-col>
+    </a-row>
+    <br />
+    <br />
+    <a-row type="flex" justify="center" align="middle">
+      <a-col :span="1"></a-col>
+      <a-col :span="23" class="card_b3">
+        <div class="card_b1">
+          <table width="100%" height="100%">
+            <tr>
+              <td align="right" width="35%">
+                <img src="@/assets/yjia.png" class="card_img1" />
+              </td>
+              <td width="10px"></td>
+              <td align="left">
+                <router-link to="/getcard">
+                  <span class="card_f1">点击添加新的卡片</span>
+                </router-link>
+              </td>
+            </tr>
+          </table>
+        </div>
       </a-col>
     </a-row>
-    <div class="reg_bottom">
-      <table width="100%" border="0">
-        <tr>
-          <td width="15%"></td>
-          <td align="center" class="reg_bottom_1" @click="confirmDoc">确认</td>
-          <td width="15%"></td>
-        </tr>
-      </table>
-    </div>
   </div>
 </template>
 <script>
@@ -103,68 +121,46 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-input::-webkit-input-placeholder {
-  color: #d9d9d9;
-  font-size: 30px;
-}
 .bg {
   background: rgb(153, 243, 7);
 }
 .bg1 {
   background: rgb(207, 215, 243);
 }
-.login_input {
-  height: 80px;
-  font-size: 30px;
-}
-.reg_reg {
+.card_reg {
   height: 1334px;
-  background: rgba(245, 245, 245, 1);
+  //   background: rgba(245, 245, 245, 1);
   position: relative;
 }
-.reg_bottom {
-  position: absolute;
-  top: 35%;
-  text-align: center;
-  width: 100vw;
-}
-.reg_bottom_1 {
+.card_bottom_1 {
   height: 120px;
   background: rgba(0, 144, 255, 1);
   border-radius: 4px;
   font-size: 36px;
-  font-family: PingFangSC-Regular, PingFang SC;
+  font-family: PingFangSC-cardular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
 }
-.reg_head {
+.card_head {
   text-align: left;
 }
-.reg_input {
+.card_input {
   height: 100px;
 }
-.reg_ma {
-  height: 48px;
-  font-size: 34px;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: rgba(0, 144, 255, 1);
-  line-height: 48px;
-}
-.reg_h1 {
+.card_h1 {
   width: 100vw;
   height: 128px;
   background: rgba(255, 255, 255, 1);
 }
-.reg_h2 {
+.card_h2 {
   height: 45px;
   font-size: 32px;
-  font-family: PingFangSC-Regular, PingFang SC;
+  font-family: PingFangSC-cardular, PingFang SC;
   font-weight: 400;
   color: rgba(0, 144, 255, 1);
   line-height: 45px;
 }
-.reg_h3 {
+.card_h3 {
   width: 390px;
   height: 50px;
   font-size: 36px;
@@ -172,5 +168,43 @@ input::-webkit-input-placeholder {
   font-weight: 800;
   color: rgba(51, 51, 51, 1);
   line-height: 50px;
+}
+.card_img {
+  width: 160px;
+  height: 128px;
+}
+.card_f {
+  width: 238px;
+  height: 48px;
+  font-size: 34px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 600;
+  color: rgba(153, 153, 153, 1);
+  line-height: 48px;
+}
+.card_b1 {
+  width: 690px;
+  height: 97px;
+  border-radius: 8px;
+  border: 1px solid rgba(57, 131, 229, 1);
+}
+.card_b2 {
+  height: 97px;
+}
+.card_b3 {
+  text-align: center;
+}
+.card_img1 {
+  width: 48px;
+  height: 48px;
+}
+.card_f1 {
+  width: 272px;
+  height: 48px;
+  font-size: 34px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(57, 131, 229, 1);
+  line-height: 48px;
 }
 </style>

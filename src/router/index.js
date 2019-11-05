@@ -25,6 +25,40 @@ const routes = [
     name: "saoma",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/saoma.vue")
+  },
+  {
+    path: "/card",
+    name: "card",
+    component: () => import(/* webpackChunkName: "about" */ "../views/card.vue")
+  },
+  {
+    path: "/cardbag",
+    name: "cardbag",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/cardbag.vue")
+  },
+  {
+    path: "/ma",
+    name: "ma",
+    component: () => import(/* webpackChunkName: "about" */ "../views/ma.vue")
+  },
+  {
+    path: "/getcard",
+    name: "getcard",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/getcard.vue")
+  },
+  {
+    path: "/sicklist",
+    name: "sicklist",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/sicklist.vue")
+  },
+  {
+    path: "/sickinfo",
+    name: "sickinfo",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/sickinfo.vue")
   }
 ];
 
