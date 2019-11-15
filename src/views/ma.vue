@@ -203,7 +203,9 @@ export default {
         window.console.log(error.config);
       });
   },
-  destroyed() {clearInterval();}
+  destroyed() {
+    clearInterval();
+  }
 };
 </script>
 <style lang="less" scoped>
