@@ -34,10 +34,13 @@
                     <td align="left" class="card_input"></td>
                   </tr>
                   <tr>
-                    <td align="left" class="sick_h2">王小二</td>
+                    <td align="left" class="sick_h2">{{ ppname }}</td>
                   </tr>
                   <tr>
-                    <td align="left" class="sick_h3">130302********2510</td>
+                    <td align="left" class="card_input"></td>
+                  </tr>
+                  <tr>
+                    <td align="left" class="sick_h3">{{ ppidcard }}</td>
                   </tr>
                 </table>
               </div>
@@ -100,6 +103,8 @@ export default {
   data() {
     return {
       ma: "&nbsp;&nbsp;&nbsp;&nbsp;",
+      ppname: "",
+      ppidcard: "",
       tipinfo: "",
       sicks: []
     };
@@ -125,6 +130,8 @@ export default {
     }
   },
   mounted() {
+    this.ppname = sessionStorage.getItem("ppname");
+    this.ppidcard = sessionStorage.getItem("ppidcard");
     this.$ajax
       .post("/api/v1/card")
       .then(res => {

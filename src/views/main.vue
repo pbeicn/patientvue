@@ -142,6 +142,8 @@ export default {
       .then(res => {
         window.console.log(res);
         this.pname = res.data.name;
+        sessionStorage.setItem("ppname",this.pname);
+        sessionStorage.setItem("ppidcard",res.data.idcard);
       })
       .catch(res => {
         window.console.log(res);

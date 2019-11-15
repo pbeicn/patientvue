@@ -79,10 +79,44 @@ export default {
       name: "",
       macode: "",
       hello: "&nbsp;&nbsp;",
-      imgn: ""
+      imgn: "",
+      tipinfo: ""
     };
   },
+  created() {
+    setInterval(() => {
+      this.checkstatus();
+    }, 10000);
+  },
   methods: {
+    checkstatus() {
+      this.$ajax
+        .get("/api/v1/card")
+        .then(res => {
+          window.console.log(res);
+          window.console.log(res.data.state);
+          // if (res.data.state != "waiting") {
+          //   this.tipinfo = "医生已扫描,请就诊";
+          //   this.success();
+          // }
+        })
+        .catch(res => {
+          window.console.log(res);
+        });
+    },
+    success() {
+      this.$success({
+        title: "成功提示",
+        // JSX support
+        content: this.tipinfo
+      });
+    },
+    error() {
+      this.$error({
+        title: "错误提示",
+        content: this.tipinfo
+      });
+    },
     getMa() {
       new QRCode(this.$refs.qrCodeDiv, {
         text: ""
@@ -168,7 +202,8 @@ export default {
         }
         window.console.log(error.config);
       });
-  }
+  },
+  destroyed() {clearInterval();}
 };
 </script>
 <style lang="less" scoped>
