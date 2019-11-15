@@ -73,13 +73,14 @@ export default {
         grant_type: "password",
         client_id: "practice",
         client_secret: "neuqsoft2019",
-        username: "51343620001005182X",
+        username: "110225196503145027",
         password: ""
       }
     };
   },
   methods: {
     plogin() {
+      sessionStorage.clear();
       this.$ajax
         .post("/oauth/token", this.$qs.stringify(this.logininfo))
         .then(res => {
