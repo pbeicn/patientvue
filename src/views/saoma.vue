@@ -1,26 +1,6 @@
 <template>
   <div id="reg" class="reg_reg">
-    <a-row type="flex" justify="space-around" class="reg_h1" align="middle">
-      <a-col :span="6">
-        <a-row type="flex" justify="space-around" align="middle">
-          <a-col :span="2"></a-col>
-          <a-col :span="2">
-            <router-link to="/">
-              <font-awesome-icon icon="angle-left" class="reg_h2" />
-            </router-link>
-          </a-col>
-          <a-col :span="20" class="reg_head">
-            <router-link to="/main">
-              <span class="reg_h2">返回</span>
-            </router-link>
-          </a-col>
-        </a-row>
-      </a-col>
-      <a-col :span="13">
-        <span class="reg_h3">扫码登录</span>
-      </a-col>
-      <a-col :span="5"></a-col>
-    </a-row>
+    <Header :title="titlemsg"></Header>
     <a-row type="flex" justify="space-around" class="reg_h1" align="middle">
       <a-col :span="1"></a-col>
       <a-col :span="5" class="reg_head">
@@ -48,9 +28,12 @@
   </div>
 </template>
 <script>
+import Header from "@/components/header/header.vue";
 export default {
+  components: { Header },
   data() {
     return {
+      titlemsg: "扫码登录",
       ma: "18461783365189632",
       tipinfo: ""
     };

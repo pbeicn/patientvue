@@ -1,26 +1,6 @@
 <template>
   <div id="card" class="card_reg">
-    <a-row type="flex" justify="space-around" class="card_h1" align="middle">
-      <a-col :span="6">
-        <a-row type="flex" justify="space-around" align="middle">
-          <a-col :span="2"></a-col>
-          <a-col :span="2">
-            <router-link to="/">
-              <font-awesome-icon icon="angle-left" class="card_h2" />
-            </router-link>
-          </a-col>
-          <a-col :span="20" class="card_head">
-            <router-link to="/main">
-              <span class="card_h2">返回</span>
-            </router-link>
-          </a-col>
-        </a-row>
-      </a-col>
-      <a-col :span="13">
-        <span class="card_h3">我的卡包</span>
-      </a-col>
-      <a-col :span="5"></a-col>
-    </a-row>
+    <Header :title="titlemsg"></Header>
     <br />
     <br />
     <a-row>
@@ -66,9 +46,12 @@
   </div>
 </template>
 <script>
+import Header from "@/components/header/header.vue";
 export default {
+  components: { Header },
   data() {
     return {
+      titlemsg: "我的卡包",
       ma: "18461783365189632",
       tipinfo: ""
     };
