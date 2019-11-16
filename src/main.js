@@ -47,6 +47,10 @@ router.beforeEach((to, from, next) => {
   const role = sessionStorage.getItem("access_token");
   window.console.log(to.path);
   window.console.log(role);
+  if (to.path == "/reg") {
+    sessionStorage.removeItem("access_token");
+    next();
+  }
   if (!role && (to.path !== "/" || to.path !== "/")) {
     sessionStorage.removeItem("access_token");
     next("/");

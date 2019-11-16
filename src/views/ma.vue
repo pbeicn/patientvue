@@ -80,11 +80,12 @@ export default {
       macode: "",
       hello: "&nbsp;&nbsp;",
       imgn: "",
-      tipinfo: ""
+      tipinfo: "",
+      timer: null
     };
   },
   created() {
-    setInterval(() => {
+    this.timer = setInterval(() => {
       this.checkstatus();
     }, 10000);
   },
@@ -204,7 +205,7 @@ export default {
       });
   },
   destroyed() {
-    clearInterval();
+    clearInterval(this.timer);
   }
 };
 </script>
