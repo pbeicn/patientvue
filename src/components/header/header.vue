@@ -9,7 +9,7 @@
           </router-link>
         </a-col>
         <a-col :span="20" class="reg_head">
-          <router-link to="/main">
+          <router-link to="main">
             <span class="reg_h2" style="cursor: pointer;">返回</span>
           </router-link>
         </a-col>
