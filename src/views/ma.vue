@@ -45,7 +45,12 @@
           <table height="100%" width="100%" border="0">
             <tr class="ma_h7">
               <td align="center">
-                <div id="qrCode" ref="qrCodeDiv" class="ma_h3" v-html="imgn"></div>
+                <div
+                  id="qrCode"
+                  ref="qrCodeDiv"
+                  class="ma_h3"
+                  v-html="imgn"
+                ></div>
               </td>
             </tr>
             <tr class="ma_h6">
@@ -96,10 +101,11 @@ export default {
         .then(res => {
           window.console.log(res);
           window.console.log(res.data.state);
-          // if (res.data.state != "waiting") {
-          //   this.tipinfo = "医生已扫描,请就诊";
-          //   this.success();
-          // }
+          if (res.data.state == "scaned") {
+            this.tipinfo = "医生已扫描,请就诊";
+            clearInterval(this.timer);
+            this.success();
+          }
         })
         .catch(res => {
           window.console.log(res);
@@ -119,9 +125,12 @@ export default {
       });
     },
     getMa() {
-      new QRCode(this.$refs.qrCodeDiv, {
-        text: ""
-      });
+      this.macode = "";
+      this.imgn = "";
+      // new QRCode(this.$refs.qrCodeDiv, {
+      //   text: ""
+      // });
+      this.$refs.qrCodeDiv = null;
       this.$ajax
         .post("/api/v1/card")
         .then(res => {

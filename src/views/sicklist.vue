@@ -30,7 +30,12 @@
       </a-col>
     </a-row>
     <br />
-    <a-row type="flex" justify="center" v-for="(sick,index) in sicks" :key="sick.id">
+    <a-row
+      type="flex"
+      justify="center"
+      v-for="(sick, index) in sicks"
+      :key="sick.id"
+    >
       <a-col :span="24">
         <table width="100%" border="0">
           <tr>
@@ -39,9 +44,9 @@
                 <table width="100%" border="0">
                   <tr>
                     <td align="left" class="sick_td1">
-                      <div v-if="index==0" class="sick_h5"></div>
-                      <div v-if="index==1" class="sick_h51"></div>
-                      <div v-if="index==2" class="sick_h52"></div>
+                      <div v-if="index == 0" class="sick_h5"></div>
+                      <div v-if="index == 1" class="sick_h51"></div>
+                      <div v-if="index == 2" class="sick_h52"></div>
                     </td>
                     <td align="left" v-html="ma"></td>
                     <td align="left">
@@ -65,7 +70,9 @@
                           @click="toSickInfo(sick.id)"
                         />
                       </div>
-                      <div class="card_m2 sp3">{{ sick.endtime.substr(0,8) }}</div>
+                      <div class="card_m2 sp3">
+                        {{ sick.endtime.substr(0, 8) }}
+                      </div>
                     </td>
                   </tr>
                 </table>
@@ -73,6 +80,7 @@
             </td>
           </tr>
         </table>
+
         <br />
       </a-col>
     </a-row>
@@ -115,6 +123,7 @@ export default {
   mounted() {
     this.ppname = sessionStorage.getItem("ppname");
     this.ppidcard = sessionStorage.getItem("ppidcard");
+    let xcode = "";
     this.$ajax
       .post("/api/v1/card")
       .then(res => {
@@ -122,17 +131,32 @@ export default {
         this.$ajax
           .get("/api/v1/card")
           .then(res => {
-            window.console.log(res);
-            sessionStorage.setItem("xcode", res.data.code);
+            xcode = res.data.code;
             this.$ajax
-              .get("/api/v1/diagnose/recent", {
-                headers: {
-                  "X-CARD-CODE": res.data.code
-                }
-              })
+              .put("/api/v1/card/" + xcode)
               .then(res => {
                 window.console.log(res);
-                this.sicks = res.data;
+                this.$ajax
+                  .post("/api/v1/card/" + xcode)
+                  .then(res => {
+                    window.console.log(res);
+                    this.$ajax
+                      .get("/api/v1/diagnose/recent", {
+                        headers: {
+                          "X-CARD-CODE": xcode
+                        }
+                      })
+                      .then(res => {
+                        window.console.log(res);
+                        this.sicks = res.data;
+                      })
+                      .catch(res => {
+                        window.console.log(res);
+                      });
+                  })
+                  .catch(res => {
+                    window.console.log(res);
+                  });
               })
               .catch(res => {
                 window.console.log(res);

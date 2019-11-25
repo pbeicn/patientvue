@@ -138,7 +138,7 @@ export default {
   },
   mounted() {
     this.$ajax
-      .get("/api/v1/pname")
+      .get("/api/v1/login/pname")
       .then(res => {
         window.console.log(res);
         this.pname = res.data.name;

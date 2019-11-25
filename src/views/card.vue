@@ -18,7 +18,9 @@
     <a-row>
       <a-col :span="2"></a-col>
       <a-col :span="20">
-        <span class="card_h99">使用说明：就诊前请点击卡面上的二维码并出示给医生</span>
+        <span class="card_h99">
+          使用说明：就诊前请点击卡面上的二维码并出示给医生
+        </span>
       </a-col>
       <a-col :span="2"></a-col>
     </a-row>
@@ -141,7 +143,7 @@ export default {
     rgba(76, 128, 244, 1) 100%
   );
   border-radius: 21px;
-  background-image: url();
+  // background-image: url();
   position: relative;
 }
 .card_img {
