@@ -78,6 +78,7 @@
                 <td></td>
               </tr>
             </table>
+
             <hr class="so_11" />
             <table width="100%" class="so_tbh" border="0">
               <tr v-for="mi in medicines" :key="mi.id">
@@ -86,14 +87,18 @@
                   <div class="so_12" v-html="mi.medicinename">阿司匹林</div>
                 </td>
                 <td class="so_tbw1" align="left">
-                  <div class="so_12" v-html="'x'+mi.medicinecnt+'('+mi.medicinesize+')'"></div>
+                  <div
+                    class="so_12"
+                    v-html="'x' + mi.medicinecnt + '(' + mi.medicinesize + ')'"
+                  ></div>
                 </td>
                 <td align="right">
-                  <div class="so_13" v-html="mi.money+'￥'"></div>
+                  <div class="so_13" v-html="mi.money + '￥'"></div>
                 </td>
                 <td class="so_tbw"></td>
               </tr>
             </table>
+
             <div class="so_81 so_13">
               <span class="so_14">合计：</span>
               <span v-html="chumc"></span>￥
@@ -116,6 +121,7 @@
                 <td></td>
               </tr>
             </table>
+
             <hr class="so_11" />
             <table width="100%" class="so_tbh" border="0">
               <tr v-for="mi in checkDTOS" :key="mi.id">
@@ -127,11 +133,12 @@
                   <div class="so_12">x1</div>
                 </td>
                 <td align="right">
-                  <div class="so_13" v-html="mi.money+'￥'"></div>
+                  <div class="so_13" v-html="mi.money + '￥'"></div>
                 </td>
                 <td class="so_tbw"></td>
               </tr>
             </table>
+
             <div class="so_81 so_13">
               <span class="so_14">合计：</span>
               <span v-html="chumk"></span>￥
@@ -173,17 +180,21 @@ export default {
   computed: {
     chumc: function() {
       let tmpM = 0;
-      for (let index = 0; index < this.medicines.length; index++) {
-        const element = this.medicines[index];
-        tmpM += parseFloat(element.money);
+      if (this.medicines) {
+        for (let index = 0; index < this.medicines.length; index++) {
+          const element = this.medicines[index];
+          tmpM += parseFloat(element.money);
+        }
       }
       return tmpM;
     },
     chumk: function() {
       let tmpM = 0;
-      for (let index = 0; index < this.checkDTOS.length; index++) {
-        const element = this.checkDTOS[index];
-        tmpM += parseFloat(element.money);
+      if (this.checkDTOS) {
+        for (let index = 0; index < this.checkDTOS.length; index++) {
+          const element = this.checkDTOS[index];
+          tmpM += parseFloat(element.money);
+        }
       }
       return tmpM;
     }

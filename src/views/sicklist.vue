@@ -133,31 +133,16 @@ export default {
           .then(res => {
             xcode = res.data.code;
             sessionStorage.setItem("xcode", xcode);
+            window.console.log(res);
             this.$ajax
-              .put("/api/v1/card/" + xcode)
+              .get("/api/v1/diagnose/recent", {
+                headers: {
+                  "X-CARD-CODE": xcode
+                }
+              })
               .then(res => {
                 window.console.log(res);
-                this.$ajax
-                  .post("/api/v1/card/" + xcode)
-                  .then(res => {
-                    window.console.log(res);
-                    this.$ajax
-                      .get("/api/v1/diagnose/recent", {
-                        headers: {
-                          "X-CARD-CODE": xcode
-                        }
-                      })
-                      .then(res => {
-                        window.console.log(res);
-                        this.sicks = res.data;
-                      })
-                      .catch(res => {
-                        window.console.log(res);
-                      });
-                  })
-                  .catch(res => {
-                    window.console.log(res);
-                  });
+                this.sicks = res.data;
               })
               .catch(res => {
                 window.console.log(res);
