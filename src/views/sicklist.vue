@@ -132,6 +132,7 @@ export default {
           .get("/api/v1/card")
           .then(res => {
             xcode = res.data.code;
+            sessionStorage.setItem("xcode", xcode);
             this.$ajax
               .put("/api/v1/card/" + xcode)
               .then(res => {
