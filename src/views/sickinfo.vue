@@ -216,6 +216,7 @@ export default {
         this.medicines = res.data.recipe.medicine;
         this.checkDTOS = res.data.checkDTOS;
         this.endtime = res.data.endtime;
+        this.endtime = this.endtime.substring(0, 8);
       })
       .catch(function(error) {
         if (error.response) {
