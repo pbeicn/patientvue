@@ -25,7 +25,10 @@
               <tr>
                 <td align="left" width="5%"></td>
                 <td align="left">
-                  <div class="card_84">使用说明：就医、拿药一卡通，请在就诊前向医生出示 您的二维码。</div>
+                  <div class="card_84">
+                    使用说明：就医、拿药一卡通，请在就诊前向医生出示
+                    您的二维码。
+                  </div>
                 </td>
                 <td align="left" width="5%"></td>
               </tr>
@@ -34,6 +37,7 @@
         </td>
       </tr>
     </table>
+
     <br />
     <br />
     <a-row>
