@@ -5,7 +5,7 @@
         <a-row type="flex" justify="space-around" align="middle">
           <a-col :span="2"></a-col>
           <a-col :span="2">
-            <router-link to="/">
+            <router-link to="/main">
               <font-awesome-icon icon="angle-left" class="card_h2" />
             </router-link>
           </a-col>

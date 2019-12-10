@@ -7,7 +7,12 @@
         <span class="reg_h3">姓名</span>
       </a-col>
       <a-col :span="18">
-        <a-input v-model="user.name" size="large" class="login_input" placeholder="请填写本人真实姓名" />
+        <a-input
+          v-model="user.name"
+          size="large"
+          class="login_input"
+          placeholder="请填写本人真实姓名"
+        />
       </a-col>
     </a-row>
     <a-row type="flex" justify="space-around" class="reg_h1" align="middle">
@@ -16,7 +21,12 @@
         <span class="reg_h3">身份证号</span>
       </a-col>
       <a-col :span="18">
-        <a-input v-model="user.idcard" size="large" class="login_input" placeholder="请填写身份证号码" />
+        <a-input
+          v-model="user.idcard"
+          size="large"
+          class="login_input"
+          placeholder="请填写身份证号码"
+        />
       </a-col>
     </a-row>
     <a-row type="flex" justify="space-around" class="reg_h1" align="middle">
@@ -25,7 +35,12 @@
         <span class="reg_h3">手机号</span>
       </a-col>
       <a-col :span="18">
-        <a-input v-model="user.mobile" size="large" class="login_input" placeholder="请填写手机号码" />
+        <a-input
+          v-model="user.mobile"
+          size="large"
+          class="login_input"
+          placeholder="请填写手机号码"
+        />
       </a-col>
     </a-row>
     <a-row type="flex" justify="space-around" class="reg_h1" align="middle">
@@ -46,7 +61,13 @@
         <span class="reg_h3">设置密码</span>
       </a-col>
       <a-col :span="18">
-        <a-input v-model="user.password" type="password" size="large" class="login_input" placeholder="请输入密码" />
+        <a-input
+          v-model="user.password"
+          type="password"
+          size="large"
+          class="login_input"
+          placeholder="请输入密码"
+        />
       </a-col>
     </a-row>
     <div class="reg_bottom">
@@ -82,7 +103,7 @@ export default {
     regPatient() {
       window.console.log(this.user);
       this.$ajax
-        .put("/api/v1/user", this.user)
+        .put("/api/v1/register/user", this.user)
         .then(res => {
           window.console.log(res);
           this.tipinfo = res.data.message;
